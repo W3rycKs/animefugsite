@@ -1,0 +1,8 @@
+{
+  "name": "my-awesome-package",
+  "version": "1.0.0",
+  "description": "um simples site de anime",
+  "dependencies": {
+    "express": "3.x"
+}
+}

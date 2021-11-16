@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+     <title></title>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+@font-face {font-family: "Roboto";
+src: url("Roboto-Regular.otf");}
+
+.background {background: #0a0a0a; font-size: 100%;}	
+
+.tab_bar_top {width: 100%;
+height: 60px;
+background: #121212;
+margin-left: 0;
+margin-bottom: 0px;
+margin-right: 0px;
+margin-top: 0;
+left: 0;
+top: 0;
+box-shadow: 1px 1px 1px #121212;
+font-size: 20px;
+position: fixed;}
+
+.tab_bar_top p {color: #f9f9f9;
+font-family: "Roboto";
+font-size: 0.85em;
+margin-top: 20px;
+margin-bottom: 0;
+margin-right: 0;
+margin-left: 25px;
+user-select: none;}
+
+.tab_bar_bottom {width: 100%;
+height: 45px;
+background: #121212;
+margin-left: 0;
+margin-bottom: 0;
+margin-right: 0px;
+margin-top: 50px;
+box-shadow: 1px 1px 1px #121212;
+font-size: 20px;
+position: fixed;
+left: 0;
+right: 0;
+display: flex;}
+
+.container_principal {width: 95%;
+margin-left: 0;
+margin-right: 0;
+margin-bottom: 55px;
+margin-top: 105px;
+position: absolute;}
+
+.tab_bar_bottom_item {width: 33.3%;
+margin: 0;}
+
+.tab_bar_bottom_item:active {background: #282828;}
+
+.tab_bar_bottom_item p {font-family: "Roboto";
+color: #f9f9f9;
+font-size: 0.55em;
+text-align: center;
+user-select: none;
+margin-right: 0;
+margin-bottom: 0;
+margin-top: 15px;}
+
+#Lançamentos p {margin-left: 0;}
+
+.anime_container {width: 100%;
+height: 100px;
+background: transparent;
+margin-left: 0;
+margin-right: 0;
+margin-bottom: 0;
+margin-top: 5px;
+border-bottom: 1px solid #121212;
+border-radius: 1px;}
+
+.anime_container:active {background: #121212;}
+
+.anime_container div {height: 90px;
+width: 90px;
+background: url("not_found.png");
+margin-top: 5px;
+margin-bottom: 0;
+margin-right: 10px;
+margin-left: 0;
+float: left;}
+
+.anime_container div img {width: 100%;
+height: 100%;
+margin: 0;
+user-select: none;}
+
+.anime_container p {width: 70%;
+color: #f9f9f9;
+font-family: "Roboto";
+font-size: 0.75em;
+float: left;
+margin-right: 0;
+margin-left: 0;
+margin-bottom: 0;
+margin-top: 25px;
+user-select: none;}
+
+.container_video {width: 100%;
+height: 100%;
+background: #0a0a0a;
+margin-left: 0;
+margin-bottom: 0px;
+margin-right: 0px;
+margin-top: 0;
+font-size: 20px;
+left: 0;
+top: 0;
+position: fixed;}
+
+.tap_bar_video {width: 104%;
+height: 60px;
+background: #121212;
+margin-left: 0;
+margin-bottom: 0px;
+margin-right: 0px;
+margin-top: 0;
+left: 0;
+top: 0;
+font-size: 20px;
+position: fixed;}
+
+.tap_bar_video p {color: #f9f9f9;
+font-family: "Roboto";
+font-size: 0.85em;
+margin-top: 20px;
+margin-bottom: 0;
+margin-right: 0;
+margin-left: 15px;
+display: block;
+user-select: none;
+float: left;}
+
+.exit {width: 60px;
+height: 60px;
+background: transparent;
+float: left;}
+
+.exit:active {background: #262626;}
+
+.exit img {width: 100%;
+height: 100%;
+margin: 0;
+user-select: none;}
+
+#player_video {width: 100%;
+height: 100%;
+margin-left: 0;
+margin-right: 0;
+margin-bottom: 0;
+margin-top: 0;
+border: none;
+margin-top: 0;
+top: 0;
+left: 0;
+outline-style: none;}
+
+.download {width: 60px;
+height: 60px;
+background: transparent;
+float: left;
+margin-bottom: 0;
+margin-right: 0;
+margin-top: 0;
+margin-left: 10px;}
+
+.download:active {background: #262626;}
+
+.download img {width: 100%;
+height: 100%;
+margin: 0;
+user-select: none;}
+
+.tap_bar_container_episodes .on_off {width: 45px;
+height: 20px;
+margin-top: 22px;
+background: #0a0a0a;
+float: left;
+margin-bottom: 0;
+margin-right: 0;
+border-radius: 15px;
+margin-left: 177px;}
+
+.tap_bar_container_episodes .on_off div {width: 20px;
+height: 20px;
+background: transparent;
+float: left;}
+
+.tap_bar_container_episodes .on_off div img {width: 100%;
+height: 100%;
+margin: 0;}
+
+.on_off {width: 45px;
+height: 20px;
+margin-top: 22px;
+background: #0a0a0a;
+float: left;
+margin-bottom: 0;
+margin-right: 0;
+border-radius: 15px;
+margin-left: 25px;}
+
+.on_off div {width: 20px;
+height: 20px;
+background: #f9f9f9;
+float: left;
+border-radius: 50px;}
+
+.container_episodes {width: 100%;	
+background: #0a0a0a;
+margin-left: 0;
+margin-bottom: 0px;
+margin-right: 0px;
+margin-top: 0;
+font-size: 20px;
+left: 0;
+right: 0;
+position: absolute;}
+
+.tap_bar_container_episodes {width: 100%;
+height: 60px;
+background: #121212;
+margin-left: 0;
+margin-bottom: 0px;
+margin-right: 0px;
+margin-top: 0;
+left: 0;
+top: 0;
+font-size: 20px;
+position: fixed;}
+
+.exit_episode {width: 60px;
+height: 60px;
+background: transparent;
+float: left;}
+
+.exit_episode img {width: 100%;
+height: 100%;
+margin: 0;}
+
+.exit_episode:active {background: #262626;}
+
+.title_episode {color: #f9f9f9;
+font-family: "Roboto";
+font-size: 0.85em;
+margin-top: 20px;
+margin-bottom: 0;
+margin-right: 0;
+margin-left: 0;
+display: block;
+user-select: none;
+float: left;
+position: absolute;}
+
+.container_episode_ {width: 95%;
+height: 70px;
+background: transparent;
+margin: 0;
+border-bottom: 1px solid #121212;
+border-radius: 1px;
+float: left;
+color: #f9f9f9;}
+
+.container_episode_:active {background: #121212;}
+
+.container_episode_ p {width: 75%;
+font-family: "Roboto";
+font-size: 0.60em;
+float: left;
+margin-right: 0;
+margin-left: 20px;
+margin-bottom: 0;
+margin-top: 20px;
+user-select: none;}
+
+.info_anime {width: 95%;
+height: 260px;
+background: transparent;
+margin-bottom: 0;
+margin-left: 0;
+margin-right: 0;
+margin-top: 60px;
+border-bottom: 1px solid #121212;
+border-radius: 1px;
+float: left;}
+
+.info_anime div {height: 140px;
+width: 120px;
+background: url("not_found.png");
+margin-top: 0;
+margin-bottom: 0;
+margin-right: 10px;
+margin-left: 5px;
+float: left;}
+
+.info_anime div img {width: 100%;
+height: 100%;
+margin: 0;}
+
+.info_anime p {width: 58%;
+color: #f9f9f9;
+font-family: "Roboto";
+font-size: 0.40em;
+float: left;
+margin-right: 0;
+margin-left: 0;
+margin-bottom: 0;
+margin-top: 0px;
+user-select: none;
+text-align: justify;}
+
+.search_ep {width: 50px;
+height: 60px;
+margin-bottom: 0;
+margin-top: 0;
+margin-right: 0;
+margin-left: 5px;
+float: left;
+background: #0a0a0a;}
+
+.search_ep input {width: 100%;
+height: 100%;	
+outline-style: none;
+border: none;
+margin: 0;
+font-family: "Roboto";
+font-size: 0.9em;
+color: white;
+background: url("search.png");}
+
+.anime_search {border: none;
+outline-style: none;
+width: 80%;
+height: 30px;
+border-radius: 1.5px;
+font-family: "Roboto";
+font-size: 1em;
+margin-top: 10px;}
+
+.search_button {width: 45%;
+height: 30px;
+background: #FF8C00;
+border: none;
+margin-top: 5px;
+border-radius: 1.5px;}
+
+.search_button:active {background: #ffa83d;}
+
+.search_button p {width: 100%;
+font-family: "Roboto";
+font-size: 1em;
+text-align: center;
+user-select: none;
+margin-bottom: 0;
+margin-top: 5px;
+float: left;}
+
+.splashscreen {width: 100%;
+height: 100%;
+position: fixed;
+left: 0;
+top: 0;}
+
+.splashscreen img {width: 100%;
+height: 100%;
+margin: 0;}
+
+.add {width: 60px;
+height: 60px;
+border-radius: 50px;
+background: #121212;
+position: fixed;
+right: 0;
+bottom: 0;
+margin-left: 0;
+margin-top: 0;
+margin-bottom: 15%;
+margin-right: 10%;}
+
+.add:active {background: #262626;}
+
+.add p {width: 100%;
+margin-right: 0;
+margin-left: 0;
+margin-bottom: 0;
+margin-top: 10px;
+font-family: "Roboto";
+color: #f9f9f9;
+text-align: center;
+font-size: 1.6em;
+user-select: none;}
+
+#select_category {width: 34%;
+height: 30px;
+background: #121212;
+border: none;
+border-radius: 1px;
+float: left;
+margin-right: 0;
+margin-bottom: 0;
+margin-left: 47%;
+margin-top: -30px;
+color: white;
+outline-style: none;}
+
+#select_type {width: 95%;
+height: 30px;
+background: #121212;
+border: none;
+border-radius: 1px;
+float: left;
+margin-right: 0;
+margin-bottom: 0;
+margin-left: 1%;
+margin-top: 0;
+color: white;
+outline-style: none;
+position: absolute;}
+
+#select_category option {color: black;
+outline-style: none;
+border: none;
+user-select: none;}
+
+video::-webkit-media-controls-play-button {display: block;}
+video::-webkit-media-controls-volume-slider {display: none;}
+video::-webkit-media-controls-mute-button {display: none;}
+video::-webkit-media-controls-fullscreen-button {display: none;}
+
+
+
+
+
+</style>
+</head>
+<!--START-->
+<body class="background" onload="hides();show_ep();verificar_assistidos()">
+<!--PRINCIPAL_CONTAINER-->
+<main class="container_principal" id="container_principal">
+<!--<input type="text" id="anime_search" placeholder="Ex: Naruto, Dragon Ball" class="anime_search">
+<div class="search_button" id="search_button"><p>Ir</p></div>-->
+
+<!--<div class="anime_container">
+	<div><img src="#" alt=""></div>
+	<p>hajimete no gal fureta wa ni coroi porra que nome grande</p>
+</div>-->
+
+
+
+</main>
+<!--TOP_BAR-->	
+<header class="tab_bar_top"><p id="tab_bar_top_p">AnimeFug</p></header>
+<!--BOTTOM_BAR-->
+<footer class="tab_bar_bottom">	
+	<div class="tab_bar_bottom_item" id="Lançamentos"><p id="lancamento">Lançamentos</p></div>
+	<div class="tab_bar_bottom_item" id="Pesquisar"><p id="pesquisar">Pesquisar</p></div>
+    <div class="tab_bar_bottom_item" id="Favoritos"><p id="favoritos">Favoritos</p></div>
+	<div class="tab_bar_bottom_item" id="Lista_desejos"><p id="lista_desejos">Lista</p></div>
+	<div class="tab_bar_bottom_item" id="Vistos"><p id="vistos">Vistos</p></div> 	    
+</footer>
+<!--SHOW_EPISODES-->
+<div class="container_episodes" id="container_episodes">
+<div class="tap_bar_container_episodes" id="tap_bar_container_episodes">
+	<div class="exit_episode" id="exit_episode">
+	<img src="exit.png" alt="" id="ok">
+    </div>
+    <p class="title_episode" id="title_episode"></p>
+    <div class="on_off" id="on_off_1"><div id="on_off_1_icon"><img src="fav_off.png" alt="" id="heart"></div></div>
+    <div class="search_ep">
+    <input type="number" id="search_ep"></div>
+</div>
+<div class="info_anime" id="info_anime">
+	<div><img src="" alt="" id="anime_ep_img"></div>
+	<p id="description"></p>
+</div>
+<div class="add" id="add"><p id="add_icon">+</p></div>
+
+<!--<div class="container_episode_">
+	<p></p>
+</div>-->	
+
+
+</div>
+<!--PLAYER_VIDEO-->
+<div class="container_video" id="container_video">
+<!--player-->
+<video src="#" id="player_video" controlsList="nodownload" controls></video>
+<!--video_player_bar-->
+<div class="tap_bar_video" id="tab_bar_top_video">
+<div class="exit" id="exit_container_player_video"><img src="exit.png" alt=""></div>
+<p class="title" id="title_ep"></p>
+<div class="on_off" id="on_off_2"><div id="on_off_2_icon"></div></div>
+<a href="#" id="link_download"><div class="download"><img src="down_icon.png" alt=""></div></a>
+</div> 
+
+
+</div>
+<!--END-->
+<script src="index.js"></script>
+</body>
+</html>
